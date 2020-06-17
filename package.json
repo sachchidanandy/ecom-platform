@@ -1,0 +1,19 @@
+{
+  "name": "exercise-tracket-app",
+  "version": "1.0.0",
+  "description": "Application to track you day to day exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules index.mjs ",
+    "dev": "nodemon --experimental-modules index.mjs ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SachchidanandY",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18"
+  }
+}
