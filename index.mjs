@@ -8,6 +8,7 @@
 import express from 'express';
 import cors  from 'cors';
 import db_connect from './utils/db_connect.mjs';
+import routes from './routes/index.mjs';
 
 // Initialize app
 const app = express();
@@ -17,6 +18,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 // Parse data into JSON
 app.use(express.json());
+// Add routes
+app.use(routes);
 
 // Create connection to db
 db_connect();
