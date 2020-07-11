@@ -6,7 +6,7 @@
 */
 
 import Router from 'express';
-import orgRoutes from './Organization.mjs'
+import orgRoutes from './organization.mjs';
 const router = Router();
 
 router.use('/org', orgRoutes);
