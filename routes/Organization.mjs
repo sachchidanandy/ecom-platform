@@ -8,7 +8,7 @@
 import Router from 'express';
 import expressValidation from 'express-validation';
 import validateJWT from '../middleware/jwt_validator.mjs';
-import { registerOrg } from '../controller/Organization.mjs';
+import { registerOrg } from '../controller/organization.mjs';
 import { newOrgValidation } from '../middleware/request_validator.mjs';
 import { VALIDATOR_OPTIONS } from '../utils/constants.mjs';
 
