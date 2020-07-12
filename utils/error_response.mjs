@@ -24,3 +24,8 @@ export const SOMETHING_WENT_WRONG = {
     error_code: 3004,
     messages: 'Internal Server Error, please try after sometime.'
 };
+
+export const INSUFFICIENT_PERMISSION = {
+    error_code: 3005,
+    messages: 'Insufficient permissions, please contact to admin.'
+};
