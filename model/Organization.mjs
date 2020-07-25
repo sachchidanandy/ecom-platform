@@ -5,9 +5,9 @@
  * @author SachchidanandY
 */
 
-import Mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-const orgSchema = new Mongoose.Schema({
+const orgSchema = new mongoose.Schema({
     org_name: { type: String, required: true },
     org_logo: { type: String },
     founded_on: { type: Date, required: true },
@@ -15,6 +15,15 @@ const orgSchema = new Mongoose.Schema({
     active: { type: Boolean, default:true, required: true }
 }, { timestamps: true });
 
-const Organization = Mongoose.model('Organization', orgSchema);
+// Static function to get organization by ID
+orgSchema.static('getOrgById', async function(org_id) {
+    let orgData = false;
+    try {
+        orgData = await this.findById(org_id);
+    } catch (error) {
+        console.error(`Can't able to get organizaton for org_id : ${org_id}, error :`, error);
+    }
+    return orgData;
+});
 
-export default Mongoose.model('Organization');
+export default mongoose.model('Organization', orgSchema);

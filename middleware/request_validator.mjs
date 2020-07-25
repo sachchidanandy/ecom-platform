@@ -29,3 +29,15 @@ export const deleteOrgValidation = {
         org_id: Joi.string().strip().required()
     })
 };
+
+export const newUserValidation = {
+    body: Joi.object({
+        first_name: Joi.string().strip().required(),
+        last_name: Joi.string().strip().required(),
+        gender: Joi.string().strip().lowercase().valid('male', 'female'),
+        email: Joi.string().email().required(),
+        mobile_no: Joi.number().min(1000000000).max(9999999999).required(),
+        password: Joi.string().alphanum().strip().min(8).required(),
+        org_id: Joi.string().strip().required()
+    })
+};

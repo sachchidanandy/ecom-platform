@@ -15,3 +15,4 @@ dotenv.config();
 export const MONGODB_URI = process.env.MONGODB_URI || '';
 export const PRIVATE_KEY = process.env.PRIVATE_KEY || fs.readFileSync(path.resolve(path.dirname(''), './keys/private.key'));
 export const PUBLIC_KEY = process.env.PUBLIC_KEY || fs.readFileSync(path.resolve(path.dirname(''), './keys/public.key'));
+export const PASSWORD_SECRET = process.env.PASSWORD_SECRET || 'ANY SECRET KEY';

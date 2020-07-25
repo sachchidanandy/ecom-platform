@@ -29,3 +29,18 @@ export const INSUFFICIENT_PERMISSION = {
     error_code: 3005,
     messages: 'Insufficient permissions, please contact to admin.'
 };
+
+export const INVALID_ORG = {
+    error_code: 3006,
+    messages: 'Please provide valid organization ID.'
+};
+
+export const UNABLE_TO_CREATE_USER = {
+    error_code: 3007,
+    messages: 'Unable to create new user please try after sometime.'
+};
+
+export const EMAIL_ID_ALREADY_REGISTERED = {
+    error_code: 3008,
+    messages: 'Email id already registered, please login.'
+};

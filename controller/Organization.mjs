@@ -19,7 +19,7 @@ export const registerOrg = async (req, res) => {
         }
         let fileName = '';
         const { org_name, founded_on, founded_by } = req.body;
-        if (req.files || Object.keys(req.files).length) {
+        if (req.files && Object.keys(req.files).length) {
             const sampleFile = req.files.org_logo;
             fileName = `${sampleFile.md5}.${sampleFile.name.split('.')[1]}`;
             await sampleFile.mv(`./public/${fileName}`);
@@ -93,3 +93,27 @@ export const deleteOrg = async (req, res) => {
         return res.status(INTERNAL_SERVER_ERROR).json(SOMETHING_WENT_WRONG);
     }
 };
+
+// Function to get organization details
+export const getOrgsInfo = async (req, res) => {
+    let filterObject = {};
+    if (req.query.filterObject) {
+        filterObject = req.query.filterObject;
+    }
+
+    try {
+        const org_list = await Organization.find({});
+        if (org_list.length === 0) {
+            return res.json({org_details:[]})
+        }
+        let org_details = org_list.map( org_info => {
+            let { org_name, org_logo, founded_on, founded_by } = org_info;
+
+            return { org_name, org_logo, founded_on, founded_by };
+        });
+
+        return res.json({org_details});
+    } catch (error) {
+        return res.status(INTERNAL_SERVER_ERROR).json(SOMETHING_WENT_WRONG);
+    }
+}
